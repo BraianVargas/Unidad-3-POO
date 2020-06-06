@@ -59,7 +59,7 @@ class ListaVehiculo:
             vehiculos.append(v.toJson())
         dic=dict(__class__=self.__class__.__name__,datos=vehiculos)
         return dic
-    def InsertarElemento(self,pos,elemento):
+    def InsertarVehiculo(self,pos,elemento):
         try:
             if(pos<self.__tope):
                 nodo=Nodo(elemento)
@@ -85,7 +85,7 @@ class ListaVehiculo:
             print('Posicion Fuera De Rango')
             time.sleep(1)
 
-    def MostrarElemento(self,elemento):
+    def MostrarVehiculo(self,elemento):
         try:
             if(type(elemento)==int):
                     if(elemento==0):
@@ -102,54 +102,53 @@ class ListaVehiculo:
                                 cont+=1              
                         if(encontrado):
                             return 'Vehiculo '+aux.getNombreClase()
-                        else:
-                            raise IndexError      
             else:
-                    if(type(elemento)==str):
-                        if(isinstance(self.__comienzo.getDato(),Usado)):
-                            if(self.__comienzo.getDato().getPatente().lower() == elemento.lower()):
-                                pb=int(input('Precio Base: '))
-                                self.__comienzo.getDato().setPrecioBase(pb)
-                                return self.__comienzo.getDato()
-                            else:
-                                aux=self.__comienzo.getSiguiente()
-                                band=False
-                                while(aux!=None and band==False):
-                                    if(type(aux.getDato())==Usado):
-                                        if(aux.getDato().getPatente().lower()==elemento.lower()):
-                                            band=True
-                                        else:
-                                            aux=aux.getSiguiente()
-                                    else:
-                                        aux=aux.getSiguiente()
-                                if(band):
-                                    pb=int(input('Precio Base: '))
-                                    aux.getDato().setPrecioBase(pb)
-                                    return aux.getDato()
-                                else:
-                                    return 0
-                        else:
-                            aux=self.__comienzo.getSiguiente()
-                            band=False
-                            while(aux!=None and band==False):
-                                if(type(aux.getDato())==Usado):
-                                    if(aux.getDato().getPatente().lower()==elemento.lower()):
-                                        band=True
-                                    else:
-                                        aux=aux.getSiguiente()
-                                else:
-                                    aux=aux.getSiguiente()
-                            if(band):
-                                pb=int(input('Precio Base: '))
-                                aux.getDato().setPrecioBase(pb)
-                                return aux.getDato()
-                            else:
-                                return 0
-        except AttributeError:
-            print("No es de clase Usado")
+                pass
         except IndexError:
             print('Posicion No Valida')                                     
             time.sleep(1)
+
+    def ModificaBase(self,patente):
+        if(type(patente)==str):
+            if(isinstance(self.__comienzo.getDato(),Usado)):
+                if(self.__comienzo.getDato().getPatente().lower() == patente.lower()):
+                    pb=int(input('Precio Base: '))
+                    self.__comienzo.getDato().setPrecioBase(pb)
+                    return self.__comienzo.getDato()
+                else:
+                    aux=self.__comienzo.getSiguiente()
+                    band=False
+                    while(aux!=None and band==False):
+                        if(type(aux.getDato())==Usado):
+                            if(aux.getDato().getPatente().lower()==patente.lower()):
+                                band=True
+                            else:
+                                aux=aux.getSiguiente()
+                        else:
+                            aux=aux.getSiguiente()
+                    if(band):
+                        pb=int(input('Precio Base: '))
+                        aux.getDato().setPrecioBase(pb)
+                        return aux.getDato()
+                    else:
+                        return 0
+            else:
+                aux=self.__comienzo.getSiguiente()
+                band=False
+                while(aux!=None and band==False):
+                    if(type(aux.getDato())==Usado):
+                        if(aux.getDato().getPatente().lower()==patente.lower()):
+                            band=True
+                        else:
+                            aux=aux.getSiguiente()
+                    else:
+                        aux=aux.getSiguiente()
+                if(band):
+                    pb=int(input('Precio Base: '))
+                    aux.getDato().setPrecioBase(pb)
+                    return aux.getDato()
+                else:
+                    return 0
 
     def Minimo(self):
             auto=None

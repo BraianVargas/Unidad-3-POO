@@ -41,7 +41,7 @@ class Menu:
                 año=int(input("Año: "))
                 km=int(input("Kilometraje: "))
                 vehic=Usado(modelo,puertas,col,base,marca,pat,año,km)
-                vehiculos.InsertarElemento(posicion-1,vehic)
+                vehiculos.InsertarVehiculo(posicion-1,vehic)
             if (vehiculo.lower()=='n'):
                 modelo=input("Modelo: ")
                 puertas=int(input("Cantidad de puertas. "))
@@ -49,7 +49,7 @@ class Menu:
                 base=int(input("Precio base: "))
                 version=input("Version: ")
                 ve=Nuevo(modelo,puertas,col,base,version)
-                vehiculos.InsertarElemento(posicion-1,ve)
+                vehiculos.InsertarVehiculo(posicion-1,ve)
         except ValueError:
             print("Debe ingresar un numero entero...")
             time.sleep(1)
@@ -82,7 +82,7 @@ class Menu:
         pos=input("Posicion: ")
         try:
             pos=int(pos)
-            vehi=vehiculos.MostrarElemento(pos-1)
+            vehi=vehiculos.MostrarVehiculo(pos-1)
             if(vehi!=None):
                 print("{}".format(vehi))
                 time.sleep(1)
@@ -93,7 +93,7 @@ class Menu:
     def opcion4(self,vehiculos):
         os.system('cls')
         pat=input('Patente ')
-        vehic=vehiculos.MostrarElemento(pat)
+        vehic=vehiculos.ModificaBase(pat)
         if(vehic!=0):
             print('Precio Venta {}'.format(vehic.CalcPrecioVenta()))
             time.sleep(1)
@@ -117,6 +117,6 @@ class Menu:
         os.system('cls')
         Nuevo=ve.toJson()
         Json=ObjectEnconder()
-        Json.GuardarArchivo(Nuevo,('vehiculos2.json'))
+        Json.GuardarArchivo(Nuevo,('C:/Users/ThinkPad T420/Desktop/Mis cosas/FCEFN/POO/Unidad 3/2020/Practica/Ejercicio 6/vehiculos2.json'))
         print("*** ARCHIVO GUARDADO ***")
         time.sleep(1)

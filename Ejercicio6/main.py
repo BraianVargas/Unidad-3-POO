@@ -8,7 +8,7 @@ import os
 if __name__=='__main__':
     vehiculos=ListaVehiculo()
     Json=ObjectEnconder()
-    Diccionario=Json.LeerArchivo('vehiculos.json')
+    Diccionario=Json.LeerArchivo('C:/Users/ThinkPad T420/Desktop/Mis cosas/FCEFN/POO/Unidad 3/2020/Practica/Ejercicio 6/vehiculos.json')
     vehiculos=Json.DecodificarDiccionario(Diccionario)
     menu=Menu()
     ban=False

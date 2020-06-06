@@ -1,9 +1,9 @@
 from zope.interface import Interface
 
 class IColeccion(Interface):
-    def insertarVehiculo(posicion,elemento):
+    def InsertarVehiculo(posicion,elemento):
         pass
-    def agregarVehiculo(elemento):
+    def AgregarVehiculo(elemento):
         pass
-    def mostrarVehiculos(posicion):
+    def MostrarVehiculo(posicion):
         pass
