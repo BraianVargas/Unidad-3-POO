@@ -117,6 +117,6 @@ class Menu:
         os.system('cls')
         Nuevo=ve.toJson()
         Json=ObjectEnconder()
-        Json.GuardarArchivo(Nuevo,('C:/Users/ThinkPad T420/Desktop/Mis cosas/FCEFN/POO/Unidad 3/2020/Practica/Ejercicio 6/vehiculos2.json'))
+        Json.GuardarArchivo(Nuevo,('vehiculos2.json'))
         print("*** ARCHIVO GUARDADO ***")
         time.sleep(1)
