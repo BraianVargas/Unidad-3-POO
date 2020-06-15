@@ -1,14 +1,10 @@
-from ClaseEmpleados import Empleados
-class Contratados(Empleados):
-    __FeInicio=""
-    __FeFin=""
+from ClaseEmpleadoTemporal import Temporal
+class Contratados(Temporal):
     __CantHoras=0
     __ValorHora=150             # Variable de clase (EL MISMO VALOR PARA TODOS LOS OBJETOS DE LA CLASE)
 
     def __init__(self,dni,nom,dir,tel,inicio,fin,horas):
-        super().__init__(dni,nom,dir,tel)
-        self.__FeInicio=inicio
-        self.__FeFin=fin
+        super().__init__(dni,nom,dir,tel,inicio,fin)
         self.__CantHoras=horas
 
     def getHoras(self):

@@ -135,24 +135,31 @@ class Coleccion:
         cont=0
         print("***** LISTADO DE EMPLEADOS QUE NECECITAN AYUDA *****")
         for i in range(len(self.__colec)):
+            if(self.__colec[i].Sueldo() < 25000):
+                print("Empleado {}" .format(i+1))
+                self.__colec[i].MuestraDatos()
+                print('\n')
+                cont+=1
+        """
             if((isinstance(self.__colec[i],Planta))==True):
                 if(self.__colec[i].Sueldo() < 25000):
-                    print("\n")
+                    print('\n')
                     print("Empleado {}" .format(i+1))
                     self.__colec[i].MuestraDatos()
                     cont+=1
             if((isinstance(self.__colec[i],Contratados))==True):
                 if(self.__colec[i].Sueldo() < 25000):
-                    print("\n")
+                    print('\n')
                     print("Empleado {}" .format(i+1))
                     self.__colec[i].MuestraDatos()
                     cont+=1
             if((isinstance(self.__colec[i],Externos))==True):
                 if(self.__colec[i].Sueldo() < 25000):
-                    print("\n")
+                    print('\n')
                     print("Empleado {}" .format(i+1))
                     self.__colec[i].MuestraDatos()
                     cont+=1
+        """
 
         input("**** Presione ENTER para continuar ****")
         if(cont==0):
