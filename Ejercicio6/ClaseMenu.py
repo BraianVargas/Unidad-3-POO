@@ -27,7 +27,7 @@ class Menu:
         time.sleep(1)
     def opcion1(self,vehiculos):
         os.system('cls')
-        posicion=input("Ingrese la posicion a insertar: ")
+        posicion=input("Ingrese la posicion a insertar: (Distinto de 0)")
         try:
             posicion=int(posicion)
             vehiculo=input("Usado(U) o Nuevo(N) --> ")

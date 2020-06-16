@@ -61,7 +61,7 @@ class ListaVehiculo:
         return dic
     def InsertarVehiculo(self,pos,elemento):
         try:
-            if(pos<self.__tope):
+            if(pos>=0 and pos<=self.__tope):
                 nodo=Nodo(elemento)
                 if(pos==0):
                     nodo.setSiguiente(self.__comienzo)
@@ -94,7 +94,7 @@ class ListaVehiculo:
                         aux=self.__comienzo.getSiguiente()
                         cont=1
                         encontrado=False
-                        while(aux and not encontrado):
+                        while(aux!=None and not encontrado):
                             if(cont==elemento):
                                 encontrado=True
                             else:
@@ -160,10 +160,13 @@ class ListaVehiculo:
                     auto=vehiculo
             return auto
     def Mostrar(self):
+        os.system('cls')
         print('-----------------------------------------')
-        for vehiculo in self:
-            print('{}'.format(vehiculo.getModelo()))
-            print('{} Puertas'.format(vehiculo.getPuertas()))
-            print('$ {}'.format(vehiculo.CalcPrecioVenta()))
+        aux = self.__comienzo
+        while(aux != None):
+            print('{}'.format(aux.getDato().getModelo()))
+            print('{} Puertas'.format(aux.getDato().getPuertas()))
+            print('$ {}'.format(aux.getDato().CalcPrecioVenta()))
             print('-----------------------------------------')
             print('\n')
+            aux = aux.getSiguiente()

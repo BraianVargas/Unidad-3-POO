@@ -17,7 +17,16 @@ class Vehiculo:
         print('Precio Base: {}'.format(self.__PrecioBase))
         return ""
     def toJson(self):
-        pass
+        d=dict(
+            __class__=self.__class__.__name__,
+            __atributos__=dict(
+                modelo=self.__Modelo,
+                puertas=self.__CantPuertas,
+                color=self.__Color,
+                preciobase=self.__PrecioBase
+            )
+        )
+        return d
     def getModelo(self):
         return self.__Modelo
     def getPuertas(self):
